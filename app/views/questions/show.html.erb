@@ -1,0 +1,21 @@
+<h1><strong><%=@question.title%></strong></h1>
+
+<p><%=@question.description%></p>
+
+<%= link_to "Edit This Question", edit_question_path %>
+
+<%= link_to "Back to All Questions", questions_path %>
+
+<%= link_to "Got an Answer?", new_question_answer_path(@question, @answer) %>
+
+<%= link_to "Delete this Question", question_path(@question),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }%>
+
+<% @question.answers.each do |answer| %>
+<ul>
+  <li>
+    <%= answer.description %>
+  </li>
+</ul>
+<%end%>
